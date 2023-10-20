@@ -62,7 +62,7 @@ def predict(Gender,Urea,Cr,HbA1c,Chol,TG,HDL,LDL,VLDL,BMI,age_range):
 
 input_interface=[]
 
-with gr.Blocks(theme=gr.themes) as app:
+with gr.Blocks(theme=gr.themes.Monochrome()) as app:
     img = gr.Image("diabete1.jpg")
     Title =gr.Label('Predicting Diabete App')
     with gr.Row():
@@ -92,26 +92,26 @@ with gr.Blocks(theme=gr.themes) as app:
         with gr.Column():
             input_interface_column_1 = [
                 gr.components.Radio(['M','F'],label='Select your gender'),
-                gr.components.Dropdown([1 ,2,3,4,5,6,7,8],label='Choose age tranche'),
-                gr.components.Number(label='Level urea mg/dl'),
-                gr.components.Number(label='Level Creatine mg/dl'),
-                gr.components.Number(label='Sugar Level Blood'),
+                gr.components.Dropdown([1 ,2,3,4,5,6,7,8],label='Choose age tranche 1=>(20-30),2=>(30-40),3=>(40-50)...'),
+                gr.components.Slider(label='Level urea mg/dl',minimum=0, maximum=100),
+                gr.components.Number(label='Level Creatine mg/dl',minimum=0, maximum=100),
+                gr.components.Number(label='Sugar Level Blood',minimum=0, maximum=100),
             ]
         with gr.Column():
             input_interface_column_2 = [
-                gr.components.Number(label='Level Cholesterol mg/dl'),
-                gr.components.Number(label='Level Triglycerides mg/dl'),
-                gr.components.Number(label='HDL Cholesterol'),
-                gr.components.Number(label='level LDL'),
-                gr.components.Number(label='VLDL level'),
-                gr.components.Number(label='BMI Body Mass Index'),
+                gr.components.Number(label='Level Cholesterol mg/dl',minimum=0, maximum=100),
+                gr.components.Number(label='Level Triglycerides mg/dl',minimum=0, maximum=100),
+                gr.components.Slider(label='HDL Cholesterol',minimum=0, maximum=100),
+                gr.components.Number(label='level LDL',minimum=0, maximum=100),
+                gr.components.Number(label='VLDL level',minimum=0, maximum=10),
+                gr.components.Slider(label='BMI Body Mass Index',minimum=0, maximum=100),
             ]
     with gr.Row():
         input_interface.extend(input_interface_column_1)
         input_interface.extend(input_interface_column_2)
         
     with gr.Row():
-        predict_btn = gr.Button('Predict')
+        predict_btn = gr.Button('Predict',variant="primary")
     
     #define the output interface
     output_interface = gr.Label(label="Diabetes Status")
