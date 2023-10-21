@@ -4,8 +4,6 @@ This project uses a trained machine learning model to build a web interface that
 
 ## Setting up the Environment 🍀
 
-For manual installation, you need to have `Python 3` on your system. Then you can clone this repo and be at the repo's root `https://github.com/bambadij/Gradio_classification`, then follow the steps as outlined below;
-
 1. Create a Python virtual environment to isolate the project's required libraries and avoid conflicts. Execute the following command in your terminal:
 
     ```bash
